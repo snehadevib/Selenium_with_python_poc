@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class InventoryPage:
     ADD_BACKPACK_BUTTON = (By.ID, "add-to-cart-sauce-labs-backpack")
     CART_BADGE = (By.CSS_SELECTOR, "[data-test='shopping-cart-badge']")
+    CART_ICON = (By.CSS_SELECTOR, "[data-test='shopping-cart-link']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -19,3 +20,6 @@ class InventoryPage:
             EC.visibility_of_element_located(self.CART_BADGE)
         )
         return badge.text
+
+    def click_cart_icon(self):
+        self.driver.find_element(*self.CART_ICON).click()
