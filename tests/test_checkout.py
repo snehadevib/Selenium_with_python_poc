@@ -15,7 +15,6 @@ def test_complete_checkout(logged_in_driver):
 
     checkout_page = CheckoutPage(logged_in_driver)
     checkout_page.fill_checkout_info("Sneha", "Devi", "65189")
-    checkout_page.click_continue()
     checkout_page.click_finish()
 
     confirmation = checkout_page.get_confirmation_message()
